@@ -2,6 +2,8 @@ package sign_up;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -116,7 +118,7 @@ public class SignUp extends JFrame {
         commentScroll.setBounds(120, 300, 250, 100);
         add(commentScroll);
         
-        // Use direct colors for each button
+       
         submitButton = new JButton("Submit");
         submitButton.setBounds(50, 420, 100, 40);
         submitButton.setFont(buttonFont);
@@ -137,6 +139,40 @@ public class SignUp extends JFrame {
         discardButton.setBackground(new Color(244, 67, 54));  // Red
         discardButton.setForeground(Color.WHITE);
         add(discardButton);
+        
+        submitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String gender = "";
+                if (maleRadio.isSelected()) gender = "Male";
+                else if (femaleRadio.isSelected()) gender = "Female";
+                else if (otherRadio.isSelected()) gender = "Other";
+
+                String department = (String) departmentComboBox.getSelectedItem();
+                String details = "Name: " + nameField.getText() + "\n"
+                               + "Contact: " + contactField.getText() + "\n"
+                               + "Mobile: " + mobileField.getText() + "\n"
+                               + "Gender: " + gender + "\n"
+                               + "Department: " + department + "\n"
+                               + "Comments: " + commentArea.getText();
+
+                javax.swing.JOptionPane.showMessageDialog(null, details, "Submitted Data", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            }
+        });
+        
+        resetButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                nameField.setText("");
+                contactField.setText("");
+                mobileField.setText("");
+                genderGroup.clearSelection();
+                departmentComboBox.setSelectedIndex(0);
+                commentArea.setText("");
+            }
+        });
+
+
 		
 		setSize(450, 530);
 		setLocationRelativeTo(null);
