@@ -69,7 +69,7 @@ public class Login extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				if(userText.getText().equals("SDAC") && new String(passwordText.getPassword()).equals("SDAC")) {
-					JOptionPane.showMessageDialog(Login.this, "SDAC Login Successful!");
+					JOptionPane.showMessageDialog(Login.this,"SDAC Login Successful!");
 				}else if(userText.getText().equals("admin") && new String(passwordText.getPassword()).equals("admin")) {
 					JOptionPane.showMessageDialog(Login.this, "Admin Login Successful!");
 				}
@@ -87,4 +87,44 @@ public class Login extends JFrame {
 		new Login();
 	}
 
+}
+
+class UserDashboard extends JFrame {
+    public UserDashboard() {
+        setTitle("User Dashboard");
+        setSize(300, 200);
+        setLayout(null);
+
+        JLabel welcome = new JLabel("Welcome, User!");
+        welcome.setBounds(100, 30, 150, 25);
+        add(welcome);
+
+        JButton homeButton = new JButton("Home");
+        homeButton.setBounds(100, 80, 100, 30);
+        add(homeButton);
+     
+
+        setLocationRelativeTo(null);
+        setVisible(true);
+    }
+}
+
+class AdminDashboard extends JFrame {
+    public AdminDashboard() {
+        setTitle("Admin Dashboard");
+        setSize(300, 200);
+        setLayout(null);
+
+        JLabel welcome = new JLabel("Welcome, Admin!");
+        welcome.setBounds(100, 30, 150, 25);
+        add(welcome);
+
+        JButton homeButton = new JButton("Home");
+        homeButton.setBounds(100, 80, 100, 30);
+        add(homeButton);
+     
+
+        setLocationRelativeTo(null);
+        setVisible(true);
+    }
 }
