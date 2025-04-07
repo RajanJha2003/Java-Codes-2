@@ -12,6 +12,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import toolbar.Home;
+
 public class Login extends JFrame {
 	JLabel userLabel, passwordLabel;
 	JTextField userText;
@@ -70,8 +72,12 @@ public class Login extends JFrame {
 				// TODO Auto-generated method stub
 				if(userText.getText().equals("SDAC") && new String(passwordText.getPassword()).equals("SDAC")) {
 					JOptionPane.showMessageDialog(Login.this,"SDAC Login Successful!");
+					dispose();
+					new Home();
 				}else if(userText.getText().equals("admin") && new String(passwordText.getPassword()).equals("admin")) {
 					JOptionPane.showMessageDialog(Login.this, "Admin Login Successful!");
+				    dispose();
+				    new Home();
 				}
 				
 			}

@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 import javax.swing.JToolBar;
 
@@ -79,6 +80,12 @@ public class Home extends JFrame {
         JButton patientButton = new JButton("🧑‍🤝‍🧑 Patient");
         JButton exitButton = new JButton("❌ Exit");
 
+        homeButton.addActionListener(e -> JOptionPane.showMessageDialog(this, "Home clicked"));
+        doctorButton.addActionListener(e -> JOptionPane.showMessageDialog(this, "Doctor clicked"));
+        patientButton.addActionListener(e -> JOptionPane.showMessageDialog(this, "Patient clicked"));
+        exitButton.addActionListener(e -> System.exit(0));
+
+        
         toolBar.add(homeButton);
         toolBar.add(doctorButton);
         toolBar.add(patientButton);

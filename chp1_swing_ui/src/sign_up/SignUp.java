@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import authentication.Login;
+
 public class SignUp extends JFrame {
 	JLabel nameLabel, contactLabel, mobileLabel, passwordLabel, genderLabel, cityLabel, commentLabel, departmentLabel;
 	JTextField nameField, contactField, mobileField, cityField;
@@ -170,6 +172,8 @@ public class SignUp extends JFrame {
 						+ "Comments: " + commentArea.getText();
 
 				JOptionPane.showMessageDialog(null, details, "Submitted Data", JOptionPane.INFORMATION_MESSAGE);
+				dispose();
+				new Login();
 			}
 		});
 
