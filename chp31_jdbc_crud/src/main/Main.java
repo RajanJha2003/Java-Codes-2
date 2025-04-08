@@ -31,6 +31,9 @@ public class Main {
     System.out.println(imp.updateUser(updatedUser));
     System.out.println(imp.getAllUsers());
     
+    System.out.println(imp.deleteUser(1));
+    System.out.println(imp.getAllUsers());
+    
 	
 }
 }

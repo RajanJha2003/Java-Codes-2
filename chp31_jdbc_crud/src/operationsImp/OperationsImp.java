@@ -98,8 +98,25 @@ public class OperationsImp implements Operations {
 
 	@Override
 	public boolean deleteUser(int id) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean success=false;
+		try {
+			String sql="delete from users where id=?";
+			PreparedStatement preparedStatement=DbConnection.getConnection().prepareStatement(sql);
+			preparedStatement.setInt(1, id);
+			
+			int deleted=preparedStatement.executeUpdate();
+			
+			if(deleted==1) {
+				System.out.println("Deleted successfully");
+				success=true;
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			System.out.println(e);
+		}
+		return success;
 	}
 
 	@Override
