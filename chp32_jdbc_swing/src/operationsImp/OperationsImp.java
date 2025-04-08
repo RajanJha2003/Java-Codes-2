@@ -176,4 +176,32 @@ public class OperationsImp implements Operations {
 		return success;
 	}
 
+	@Override
+	public User getUserById(int id) {
+	    User user = null;
+	    try {
+	        String sql = "SELECT * FROM users WHERE id = ?";
+	        PreparedStatement preparedStatement = DbConnection.getConnection().prepareStatement(sql);
+	        preparedStatement.setInt(1, id);
+
+	        ResultSet resultSet = preparedStatement.executeQuery();
+
+	        if (resultSet.next()) {
+	            user = new User();
+	            user.setId(resultSet.getInt("id"));
+	            user.setUsername(resultSet.getString("username"));
+	            user.setPassword(resultSet.getString("password"));
+	            user.setEmail(resultSet.getString("email"));
+	            user.setPhone(resultSet.getString("phone"));
+	            user.setGender(resultSet.getString("gender"));
+	            user.setCity(resultSet.getString("city"));
+	        }
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return user;
+	}
+
+
 }

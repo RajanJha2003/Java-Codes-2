@@ -11,4 +11,6 @@ public interface Operations {
 	 boolean deleteUser(int id);
 	 User searchUser(int id);
 	 boolean loginUser(String email, String password);
+	 User getUserById(int id) ;
+
 }

@@ -63,6 +63,11 @@ public class AllUsers extends JFrame {
                            JOptionPane.showMessageDialog(AllUsers.this, "Failed to delete user.");
                        }
                    }
+               }else if (col == 6) { // Edit column
+                   int id = (int) tableModel.getValueAt(row, 0);
+                   OperationsImp imp = new OperationsImp();
+                   User user = imp.getUserById(id);
+                   new UpdateUserForm(user, AllUsers.this, row);
                }
     	}
 	});
