@@ -24,13 +24,12 @@ public class SignUp extends JFrame {
 	public SignUp() {
 		setTitle("Sign Up Form");
 		setLayout(null);
-		getContentPane().setBackground(new Color(245, 245, 245)); // Light gray background
+		getContentPane().setBackground(new Color(245, 245, 245));
 		
 		labelFont = new Font("Arial", Font.BOLD, 12);
 		fieldFont = new Font("Arial", Font.PLAIN, 12);
 		buttonFont = new Font("Arial", Font.BOLD, 12);
 
-		// Name
 		nameLabel = new JLabel("Name:");
 		nameLabel.setFont(labelFont);
 		nameLabel.setBounds(50, 50, 120, 30);
@@ -41,7 +40,7 @@ public class SignUp extends JFrame {
 		nameField.setBounds(120, 50, 250, 30);
 		add(nameField);
 
-		// Contact
+		
 		contactLabel = new JLabel("Contact:");
 		contactLabel.setFont(labelFont);
 		contactLabel.setBounds(50, 100, 120, 30);
@@ -52,7 +51,7 @@ public class SignUp extends JFrame {
 		contactField.setBounds(120, 100, 250, 30);
 		add(contactField);
 
-		// Mobile
+		
 		mobileLabel = new JLabel("Mobile:");
 		mobileLabel.setFont(labelFont);
 		mobileLabel.setBounds(50, 150, 120, 30);
@@ -63,7 +62,6 @@ public class SignUp extends JFrame {
 		mobileField.setBounds(120, 150, 250, 30);
 		add(mobileField);
 
-		// Password
 		passwordLabel = new JLabel("Password:");
 		passwordLabel.setFont(labelFont);
 		passwordLabel.setBounds(50, 200, 120, 30);
@@ -74,7 +72,6 @@ public class SignUp extends JFrame {
 		passwordField.setBounds(120, 200, 250, 30);
 		add(passwordField);
 
-		// Gender
 		genderLabel = new JLabel("Gender:");
 		genderLabel.setBounds(50, 250, 120, 30);
 		genderLabel.setFont(labelFont);
@@ -103,7 +100,7 @@ public class SignUp extends JFrame {
 		add(femaleRadio); 
 		add(otherRadio);
 
-		// Department
+		
 		departmentLabel = new JLabel("Dept:");
 		departmentLabel.setBounds(50, 300, 120, 30);
 		departmentLabel.setFont(labelFont);
@@ -115,7 +112,7 @@ public class SignUp extends JFrame {
 		departmentComboBox.setFont(fieldFont);
 		add(departmentComboBox);
 
-		// Comments
+		
 		commentLabel = new JLabel("Comments:");
 		commentLabel.setBounds(50, 350, 120, 30);
 		commentLabel.setFont(labelFont);
@@ -129,7 +126,6 @@ public class SignUp extends JFrame {
 		commentScroll.setBounds(120, 350, 250, 100);
 		add(commentScroll);
 
-		// Buttons
 		submitButton = new JButton("Submit");
 		submitButton.setBounds(50, 470, 100, 40);
 		submitButton.setFont(buttonFont);
@@ -151,7 +147,6 @@ public class SignUp extends JFrame {
 		discardButton.setForeground(Color.WHITE);
 		add(discardButton);
 
-		// Submit Action
 		submitButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
