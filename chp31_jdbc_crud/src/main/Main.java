@@ -37,6 +37,11 @@ public class Main {
     
     System.out.println(imp.loginUser("rajanj448@gmail.com", "ghj"));
     
+    System.out.println(imp.searchUser(3));
+    
+    
+    
+    
 	
 }
 }

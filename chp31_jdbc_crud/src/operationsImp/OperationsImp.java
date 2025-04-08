@@ -120,10 +120,35 @@ public class OperationsImp implements Operations {
 	}
 
 	@Override
-	public User searchUser(String username) {
-		// TODO Auto-generated method stub
-		return null;
+	public User searchUser(int id) {
+	    User user = null;
+	    try {
+	        String sql = "SELECT * FROM users WHERE id = ?";
+	        PreparedStatement preparedStatement = DbConnection.getConnection().prepareStatement(sql);
+	        preparedStatement.setInt(1, id);
+
+	        ResultSet resultSet = preparedStatement.executeQuery();
+
+	        if (resultSet.next()) {
+	            user = new User();
+	            user.setId(resultSet.getInt("id"));
+	            user.setUsername(resultSet.getString("username"));
+	            user.setPassword(resultSet.getString("password"));
+	            user.setEmail(resultSet.getString("email"));
+	            user.setPhone(resultSet.getString("phone"));
+	            user.setGender(resultSet.getString("gender"));
+	            user.setCity(resultSet.getString("city"));
+	            System.out.println("User found: " + id);
+	        } else {
+	            System.out.println("User not found: " + id);
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        System.out.println(e);
+	    }
+	    return user;
 	}
+
 
 	@Override
 	public boolean loginUser(String email, String password) {
