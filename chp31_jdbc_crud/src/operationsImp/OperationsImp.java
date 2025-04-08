@@ -127,8 +127,28 @@ public class OperationsImp implements Operations {
 
 	@Override
 	public boolean loginUser(String email, String password) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean success=false;
+		
+		try {
+			String sql="select * from users where email=? and password=?";
+			PreparedStatement preparedStatement=DbConnection.getConnection().prepareStatement(sql);
+			preparedStatement.setString(1, email);
+			preparedStatement.setString(2, password);
+            
+			ResultSet resultSet=preparedStatement.executeQuery();
+			if(resultSet.next()) {
+				success=true;
+				System.out.println("logged in");
+				
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			System.out.println(e);
+		}
+		
+		return success;
 	}
 
 }

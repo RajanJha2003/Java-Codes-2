@@ -34,6 +34,9 @@ public class Main {
     System.out.println(imp.deleteUser(1));
     System.out.println(imp.getAllUsers());
     
+    
+    System.out.println(imp.loginUser("rajanj448@gmail.com", "ghj"));
+    
 	
 }
 }
