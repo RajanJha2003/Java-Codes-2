@@ -204,7 +204,7 @@ public class SignUp extends JFrame {
 		setSize(450, 450); // Increased height to accommodate password
 		setLocationRelativeTo(null);
 		setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		setVisible(true);
 	}
 
