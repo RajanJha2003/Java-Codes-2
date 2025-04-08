@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 
 public class Authentication {
   public static String authenticateUser(String username,String password) {
-	  String role="";
+	  String role=null;
 	  
 	  try {
 		String sql="select * from users where username=? and password=?";
