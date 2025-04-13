@@ -119,7 +119,7 @@ public class Adapter extends JFrame {
 		
 		submitButton.setName("SubmitButton");
 
-		// 1. MouseAdapter
+	
 		submitButton.addMouseListener(new MouseAdapter() {
 		    public void mouseClicked(MouseEvent e) {
 		        System.out.println(submitButton.getName() + " - Mouse Clicked");
