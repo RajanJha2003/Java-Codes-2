@@ -1,6 +1,7 @@
 package crud;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,12 +42,28 @@ public class OperationsImp implements Operations {
 		try {
 			String sql="select * from users";
 			PreparedStatement preparedStatement=DbConnection.getConnection().prepareStatement(sql);
+			ResultSet resultSet=preparedStatement.executeQuery();
 			
+			while (resultSet.next()) {
+				user=new User();
+				user.setId(resultSet.getInt(1));
+				user.setUsername(resultSet.getString(2));
+				user.setPassword(resultSet.getString(3));
+				user.setEmail(resultSet.getString(4));
+				user.setPhone(resultSet.getString(5));
+				user.setGender(resultSet.getString(6));
+				user.setCity(resultSet.getString(7));
+				list.add(user);
+				
+				
+			}
 			
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
+			System.out.println(e);
 		}
-		return null;
+		return list;
 	}
 
 	@Override
