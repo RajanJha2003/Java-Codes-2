@@ -36,6 +36,16 @@ public class Home extends JFrame {
         searchBtn.setForeground(Color.WHITE);
         searchBtn.setFont(buttonFont);
         searchBtn.setFocusPainted(false);
+        
+        searchBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				new SearchUser();
+				
+			}
+		});
        
         add(searchBtn);
 
