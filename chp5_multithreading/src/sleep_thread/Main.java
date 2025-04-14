@@ -7,7 +7,7 @@ class MyThread1 extends Thread{
 		System.out.println(Thread.currentThread().getName()+" is sleeping");
 		
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(2000);
 				System.out.println(Thread.currentThread().getName());
 
 			} catch (Exception e) {
