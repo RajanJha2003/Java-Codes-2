@@ -90,6 +90,8 @@ public class OperationsImp implements Operations {
 			
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
+			System.out.println(e);
 		}
 		return success;
 	}
@@ -151,5 +153,31 @@ public class OperationsImp implements Operations {
 		}
 		return user;
 	}
+	@Override
+	public User getUserById(int id) {
+	    User user = null;
+	   try {
+		String sql="select * from users where id=?";
+		PreparedStatement preparedStatement=DbConnection.getConnection().prepareStatement(sql);
+		preparedStatement.setInt(1, id);
+		ResultSet rs=preparedStatement.executeQuery();
+		if(rs.next()) {
+			 user = new User();
+	            user.setId(rs.getInt("id"));
+	            user.setUsername(rs.getString("username"));
+	            user.setEmail(rs.getString("email"));
+	            user.setPhone(rs.getString("phone"));
+	            user.setGender(rs.getString("gender"));
+	            user.setCity(rs.getString("city"));
+		}
+		
+	} catch (Exception e) {
+		// TODO: handle exception
+		e.printStackTrace();
+		System.out.println(e);
+	}
+	    return user;
+	}
+
 
 }

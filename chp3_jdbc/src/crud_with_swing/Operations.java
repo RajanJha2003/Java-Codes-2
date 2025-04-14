@@ -8,5 +8,7 @@ public interface Operations {
 	 boolean updateUser(User user);
 	 boolean deleteUser(int id);
 	 User searchUser(String username);
+	 
+	 User getUserById(int id);
 
 }

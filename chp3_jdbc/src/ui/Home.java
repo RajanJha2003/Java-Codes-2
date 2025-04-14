@@ -46,7 +46,15 @@ public class Home extends JFrame {
         allUsersBtn.setForeground(Color.WHITE);
         allUsersBtn.setFont(buttonFont);
         allUsersBtn.setFocusPainted(false);
-        allUsersBtn.addActionListener(e -> getAllUsers());
+       allUsersBtn.addActionListener(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			new ViewUsers();
+			
+		}
+	});
         add(allUsersBtn);
 
         // Insert User Button - Orange
@@ -56,7 +64,15 @@ public class Home extends JFrame {
         insertBtn.setForeground(Color.WHITE);
         insertBtn.setFont(buttonFont);
         insertBtn.setFocusPainted(false);
-        insertBtn.addActionListener(e -> insertUser());
+        insertBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				new InsertUser();
+				
+			}
+		});
         add(insertBtn);
 
         // Exit Button - Red
@@ -72,14 +88,7 @@ public class Home extends JFrame {
         setVisible(true);
     }
 
-    private void searchUser() {
-        JOptionPane.showMessageDialog(this, "Search User functionality not implemented yet.");
-    }
-
-    private void getAllUsers() {
-        JOptionPane.showMessageDialog(this, "Get All Users functionality not implemented yet.");
-    }
-
+   
     private void insertUser() {
         JOptionPane.showMessageDialog(this, "Insert User functionality not implemented yet.");
     }
