@@ -7,6 +7,6 @@ public interface Operations {
 	 List<User> getAllUsers();
 	 boolean updateUser(User user);
 	 boolean deleteUser(int id);
-	 User searchUser(int id);
+	 User searchUser(String username);
 
 }

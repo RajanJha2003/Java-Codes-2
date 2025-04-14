@@ -99,17 +99,57 @@ public class OperationsImp implements Operations {
 		// TODO Auto-generated method stub
 		boolean success=false;
 		try {
+			String sql="delete from users where id=?";
+			PreparedStatement preparedStatement=DbConnection.getConnection().prepareStatement(sql);
+			preparedStatement.setInt(1, id);
 			
+			int delete=preparedStatement.executeUpdate();
+			
+			if(delete==1) {
+				success=true;
+				System.out.println("user deleted successfully");
+			}
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
+			System.out.println(e);
 		}
 		return false;
 	}
 
 	@Override
-	public User searchUser(int id) {
+	public User searchUser(String username) {
 		// TODO Auto-generated method stub
-		return null;
+		User user=null;
+		
+		try {
+			String sql="select * from users where username=?";
+			PreparedStatement preparedStatement=DbConnection.getConnection().prepareStatement(sql);
+			preparedStatement.setString(1, username);
+			
+			ResultSet resultSet=preparedStatement.executeQuery();
+			
+			if (resultSet.next()) {
+				 user = new User();
+		            user.setId(resultSet.getInt("id"));
+		            user.setUsername(resultSet.getString("username"));
+		            user.setPassword(resultSet.getString("password"));
+		            user.setEmail(resultSet.getString("email"));
+		            user.setPhone(resultSet.getString("phone"));
+		            user.setGender(resultSet.getString("gender"));
+		            user.setCity(resultSet.getString("city"));
+		            System.out.println("User found: " + username);
+              				
+			}else {
+				System.out.println("user not found"+username);
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			System.out.println(e);
+		}
+		return user;
 	}
 
 }
