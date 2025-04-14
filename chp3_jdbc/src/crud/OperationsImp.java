@@ -97,6 +97,12 @@ public class OperationsImp implements Operations {
 	@Override
 	public boolean deleteUser(int id) {
 		// TODO Auto-generated method stub
+		boolean success=false;
+		try {
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		return false;
 	}
 
