@@ -24,6 +24,7 @@ public class OperationsImp implements Operations {
 			int add=preparedStatement.executeUpdate();
 			if(add==1) {
 				success=true;
+				System.out.println("User added successfully");
 			}
 			
 		} catch (Exception e) {
@@ -69,7 +70,28 @@ public class OperationsImp implements Operations {
 	@Override
 	public boolean updateUser(User user) {
 		// TODO Auto-generated method stub
-		return false;
+		boolean success=false;
+		try {
+			String sql = "UPDATE users SET username=?, password=?, email=?, phone=?, gender=?, city=? WHERE id=?";
+			PreparedStatement preparedStatement=DbConnection.getConnection().prepareStatement(sql);
+			preparedStatement.setString(1, user.getUsername());
+			preparedStatement.setString(2, user.getPassword());
+			preparedStatement.setString(3, user.getEmail());
+			preparedStatement.setString(4, user.getPhone());
+			preparedStatement.setString(5, user.getGender());
+			preparedStatement.setString(6, user.getCity());
+			preparedStatement.setInt(7, user.getId());
+			
+			int update=preparedStatement.executeUpdate();
+			if(update==1) {
+				success=true;
+				System.out.println("User updated successfully");
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return success;
 	}
 
 	@Override
